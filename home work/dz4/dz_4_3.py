@@ -5,8 +5,7 @@
 
 
 def reverse_string2(word):
-    word = reversed(word)
-    word2 = word.lower()
+    word2 = reversed(word.lower())
     if word.lower() == word2:
         print(True)
     else:
