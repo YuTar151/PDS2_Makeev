@@ -5,12 +5,12 @@
 
 
 def reverse_string2(word):
-    word2 = reversed(word.lower())
-    if word.lower() == word2:
-        print(True)
+    res = ''.join(reversed(word.lower()))
+    if word == res:
+        w = True
     else:
-        print(False)
-    return
+        w = False
+    return w
 
 word = input('Введіть слово: ')
 print(reverse_string2(word))
