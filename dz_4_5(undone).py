@@ -13,7 +13,7 @@ def letter_stat(string):
     a = max(counted_chars.values())
     for k, v in counted_chars.items():
         if v >= a:
-            res = f"Літера {k}, зустрічається найчастіше ({v} рази)"
+            res = f"Літера '{k}', зустрічається найчастіше ({v} рази)"
             return res
 
 string = input("Задайте строку: ")
