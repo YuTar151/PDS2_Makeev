@@ -1,6 +1,8 @@
 
+# 5. Напишіть функцію, яка приймає рядок та повертає літеру, яка зустрічається В ньому найчастіше?
 
-string = 'fgfhsadsssssllfd'
+# string = input("Задайте строку: ")
+string = "Задайте строку: "
 counted_chars = {}
 
 for char in string:
