@@ -6,7 +6,7 @@
 
 def reverse_string2(word):
     res = ''.join(reversed(word.lower()))
-    if word == res:
+    if word.lower() == res:
         w = True
     else:
         w = False
