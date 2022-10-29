@@ -5,6 +5,7 @@ text = text.replace(" ", "")
 text = text.replace(",", "")
 text = text.replace(".", "")
 text = text.replace("!", "")
+
 stat = {}
 for ltr in text:
     if ltr in stat:
