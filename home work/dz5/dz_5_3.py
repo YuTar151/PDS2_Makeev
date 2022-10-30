@@ -6,7 +6,7 @@ def filesys():
     path = os.getcwd()
     cat_counter = 0
     file_counter = 0
-    for dirpath, dirnames, filenames in os.walk('../..'):
+    for dirpath, dirnames, filenames in os.walk('.'):
         for dirname in dirnames:
             print(f'Каталог: |{dirname}')
             cat_counter += 1
