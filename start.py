@@ -5,21 +5,21 @@
 PS: Если использовать break в цикле for - else, то при прерывании цикла код после else выполняться не будет.
 """
 
-num_1 = 1812
-num_2 = 2500
-a, b = 0, 0
-list = []
-for i in range(1, num_2):
-    a = num_1 % i
-    b = num_2 % i
-    if a == b and i !=1:
-        # print(i, end=" ")
-        list.append(i)
-    i += 1
-    # else:
-print(list[-1])
-
-
+# num_1 = 1812
+# num_2 = 2500
+# a, b = 0, 0
+# list = []
+# i = 1
+# # for i in range(1, num_2):
+# while num_1 < num_2:
+#     a = num_1 % i
+#     b = num_2 % i
+#     if a == b and i !=1:
+#         print(i, end=" ")
+#         list.append(i)
+#     i += 1
+#     # else:
+# print(list[-1])
 
 
 """
@@ -29,3 +29,27 @@ PS: Чтобы выводить побуквенно в одну строчку,
 следующий print() продолжит вывод не с новой строки.
 """
 
+#
+# class DepartmentReport:
+#     pass
+#
+#
+# department_report = DepartmentReport
+
+
+class SalesReport():
+    pass
+
+
+report = SalesReport()
+report.amount = 10
+
+report_2 = SalesReport()
+report_2.amount = 20
+
+def print_report(report):
+    print("Total amount", report.amount)
+
+
+print_report(report)
+print_report(report_2)
