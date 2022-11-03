@@ -37,19 +37,33 @@ PS: Чтобы выводить побуквенно в одну строчку,
 # department_report = DepartmentReport
 
 
+# class SalesReport():
+#     def print_report(self):
+#         print("Total amount", self.amount)
+#
+#
+# report = SalesReport()
+# report.amount = 10
+#
+# report_2 = SalesReport()
+# report_2.amount = 20
+#
+#
+# report.print_report()
+# report_2.print_report()
+
+
 class SalesReport():
-    pass
+    def __init__(self):
+        self.deals = None
 
+    def add_deal(self, amount):
+        if not hasattr(self, "deals"):
+            self.deals = []
+        self.deals.append(amount)
 
-report = SalesReport()
-report.amount = 10
+    def total_amount(self):
+        return sum(self.deals)
 
-report_2 = SalesReport()
-report_2.amount = 20
-
-def print_report(report):
-    print("Total amount", report.amount)
-
-
-print_report(report)
-print_report(report_2)
+    def print_report(self):
+        print("Total sales", self.total_amount())
