@@ -29,6 +29,7 @@ PS: Чтобы выводить побуквенно в одну строчку,
 следующий print() продолжит вывод не с новой строки.
 """
 
+
 #
 # class DepartmentReport:
 #     pass
@@ -53,11 +54,11 @@ PS: Чтобы выводить побуквенно в одну строчку,
 # report_2.print_report()
 
 
-class SalesReport():
+class DepartmentReport():
     def __init__(self):
-        self.deals = None
+        self.deals = []
 
-    def add_deal(self, amount):
+    def add_revenue(self, amount):
         if not hasattr(self, "deals"):
             self.deals = []
         self.deals.append(amount)
@@ -65,5 +66,12 @@ class SalesReport():
     def total_amount(self):
         return sum(self.deals)
 
-    def print_report(self):
+    def revenues(self):
         print("Total sales", self.total_amount())
+
+
+report = DepartmentReport()
+report.add_revenue(1_000_000)
+report.add_revenue(400_000)
+print(report.revenues)  # => [1000000, 400000]
+print(report.average_revenue()) # => 700000.0
