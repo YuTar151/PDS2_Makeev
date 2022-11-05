@@ -15,11 +15,12 @@ PS: Если использовать break в цикле for - else, то пр�
 #     a = num_1 % i
 #     b = num_2 % i
 #     if a == b and i !=1:
-#         print(i, end=" ")
+#         # print(i, end=" ")
 #         list.append(i)
-#     i += 1
-#     # else:
-# print(list[-1])
+#         i += 1
+# else:
+#     print(list[-1])
+
 
 
 """
@@ -54,24 +55,3 @@ PS: Чтобы выводить побуквенно в одну строчку,
 # report_2.print_report()
 
 
-class DepartmentReport():
-    def __init__(self):
-        self.deals = []
-
-    def add_revenue(self, amount):
-        if not hasattr(self, "deals"):
-            self.deals = []
-        self.deals.append(amount)
-
-    def total_amount(self):
-        return sum(self.deals)
-
-    def revenues(self):
-        print("Total sales", self.total_amount())
-
-
-report = DepartmentReport()
-report.add_revenue(1_000_000)
-report.add_revenue(400_000)
-print(report.revenues)  # => [1000000, 400000]
-print(report.average_revenue()) # => 700000.0
