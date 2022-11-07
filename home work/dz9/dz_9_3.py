@@ -16,6 +16,7 @@ class Parallelogram:
         self.length = length
 
 
+    @classmethod
     def get_area(self):
         res = self.width * self.length
         print(res)
