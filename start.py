@@ -55,3 +55,31 @@ PS: Чтобы выводить побуквенно в одну строчку,
 # report_2.print_report()
 
 
+class ComplexNumber:
+    def __init__(self, r=0, i=0):
+        self.real = r
+        self.imag = i
+
+    def get_data(self):
+        print(f'{self.real}+{self.imag}j')
+
+
+# Создаем новый объект ComplexNumber
+num1 = ComplexNumber(2, 3)
+
+# Вызываем метод get_data()
+# Вывод: 2+3j
+num1.get_data()
+
+# Создаем еще один объект ComplexNumber
+# и новый атрибут 'attr'
+num2 = ComplexNumber(5)
+num2.attr = 10
+
+# Вывод: (5, 0, 10)
+print((num2.real, num2.imag, num2.attr))
+
+# У объекта c1 нет атрибута 'attr', поэтому
+# вызывается ошибка
+# AttributeError: 'ComplexNumber' object has no attribute 'attr'
+print(num1.attr)
