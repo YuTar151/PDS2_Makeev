@@ -15,27 +15,27 @@ class Car:
         self.color = color
         self.engine_volume = engine_volume
 
-    @classmethod
-    def go_ahead(self):
-        # print(f"{self.color} {self.car_model} V{self.engine_volume} їде вперед")
-        print("їде вперед")
 
-    @classmethod
+    def go_ahead(self):
+        print(f"{self.color} {self.car_model} V{self.engine_volume} їде вперед")
+        # print("їде вперед")
+
+
     def go_back(self):
-        # print(f"{self.color} {self.car_model} V{self.engine_volume} їде назад")
-        print("їде назад")
+        print(f"{self.color} {self.car_model} V{self.engine_volume} їде назад")
+        # print("їде назад")
 
 class Car2(Car):
 
-    @classmethod
-    def turn_left(self):
-        # print(f"{self.color} {self.car_model} V{self.engine_volume} повертає на ліво")
-        print("повертає на ліво")
 
-    @classmethod
+    def turn_left(self):
+        print(f"{self.color} {self.car_model} V{self.engine_volume} повертає на ліво")
+        # print("повертає на ліво")
+
+
     def turn_right(self):
-        # print(f"{self.color} {self.car_model} V{self.engine_volume} повертає на право")
-        print("повертає на право")
+        print(f"{self.color} {self.car_model} V{self.engine_volume} повертає на право")
+        # print("повертає на право")
 
 
 drive = Car2("Tesla", "Синя", 2.8)
