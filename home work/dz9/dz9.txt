@@ -16,11 +16,3 @@
 опрацьовувати їх у циклі і виводити значення в консоль.
 
 
-3. Напишіть клас Parallelogram, який приймає два аргументи width i length i метод get_area, який вираховує площу
-паралелограму. Успадкуйте від нього клас Square, перевизначіть в ньому метод get_area таким чином, щоб він
-вираховував площу квадрату.
-
-base = float(input('Length of base: '))
-height = float(input('Measurement of height: '))
-area = base * height
-print("Area is: ", area)
