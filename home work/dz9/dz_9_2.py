@@ -7,7 +7,6 @@
 Напишіть клас Datalnterface, в якому буде захищений атрибут, що є екземпляром класу TextLoader,
 а також публічний метод process_texts, який буде приймати список рядків, опрацьовувати їх у циклі і виводити значення в консоль.
 """
-
 class TextProcessor:
 
     def __init__(self, text):
@@ -37,7 +36,6 @@ print(tp.get_clean_string(t))
 Створіть додатковий рrореrtу для сlеаn_string, який буде виводити повідомлення В консоль
 про те, що виводиться вже очищений текст.
 """
-
 class TextLoader:
 
     def __init__(self, text_processor : TextProcessor):
@@ -59,21 +57,24 @@ t_loader.set_clean_text("?,!Інший:; клас, да*них.??")
 print(t_loader.clean_string)
 
 
-
-class Datalnterface:        # в якому буде захищений атрибут, що є екземпляром класу TextLoader
+"""
+Напишіть клас Datalnterface, в якому буде захищений атрибут, що є екземпляром класу TextLoader,
+а також публічний метод process_texts, який буде приймати список рядків, опрацьовувати їх у циклі і виводити значення в консоль.
+"""
+class Datalnterface:
 
     def __init__(self, t_loader : TextLoader):
         self._t_loader = t_loader
 
 
-    def process_texts(self, text):        # буде приймати список рядків, опрацьовувати їх у циклі і виводити значення в консоль.
+    def process_texts(self, text):
         for string in text:
             self._t_loader.set_clean_text(string)
             print(self._t_loader.clean_string)
 
 
-a = ['sdgjknsd90909', '-sfksdfnm']
+list = ['sdgjknsd90909', '-sfksdfnm', 'yklio']
 di = Datalnterface(t_loader)
-di.process_texts(a)
+di.process_texts(list)
 
 
