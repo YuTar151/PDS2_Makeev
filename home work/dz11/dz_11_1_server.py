@@ -9,17 +9,14 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind(('', 55000))
 sock.listen(10)
 print('Server is running, please, press ctrl+c to stop')
+conn, addr = sock.accept()
+print('connected:', addr)
 
 def resive():
 
     while True:
-        otchet = 'Повідомленя доставлено'
-        conn, addr = sock.accept()
-        print('connected:', addr)
         data = conn.recv(1024).decode('utf-8')
         print(str(data))
-        conn.send(otchet.encode('utf-8'))
-
         msg = input('Введіть відповідь: ')
         conn.send(msg.encode('utf-8'))
         resive()
