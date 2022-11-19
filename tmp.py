@@ -1,14 +1,7 @@
-di = {1: "Докладніше про те чим можу бути корисним",
-      2: "Про компанію...",
-      3: "Послуги та інше",
-      "Ти бот?": "Звісно я бот"
-      }
+def count_words(data):
+    word_counter = len(data.split(' '))
+    return word_counter
 
-data = "Ти бот?"
 
-if data in di:
-    msg = di.get(data)
-    # msg = di.__getitem__(data)
-    print(msg)
-else:
-    print("Не зрозуміле питання")
+data = "2. Додайте до серверу з першого завдання функцiю чат-боту який би відсилав клієнту задані відповіді на певні повідомлення"
+print(count_words(data))
