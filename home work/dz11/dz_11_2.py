@@ -21,21 +21,44 @@ def greetings():
 
 def resive():
 
-    di = {"Привіт": "Докладніше про те чим можу бути корисним",
+    di = {1: "Докладніше про те чим можу бути корисним",
           2: "Про компанію...",
           3: "Послуги та інше",
+          "Привіт": "Привіт. Як справи?",
           "Ти бот?": "Звісно я бот"
           }
 
     while True:
         data = conn.recv(1024).decode('utf-8')
-        msg = di.get(data)
-        if msg:
-            conn.send(msg.encode('utf-8'))
-        else:
-            msg = "Не зрозуміле питання"
-            conn.send(msg.encode('utf-8'))
+        is_number(data)
+        if msg_check == 0:
+            msg = di.get(int(data))
+            if msg is not None:
+                conn.send(msg.encode('utf-8'))
+            else:
+                msg = "Не зрозуміле питання"
+                conn.send(msg.encode('utf-8'))
+
+        elif msg_check == 1:
+            msg = di.get(data)
+            if msg is not None:
+                conn.send(msg.encode('utf-8'))
+            else:
+                msg = "Не зрозуміле питання"
+                conn.send(msg.encode('utf-8'))
+
         resive()
+
+def is_number(data):
+    """ msg_check = 0 - це інтова змінна, 1 - це строкова."""
+    global msg_check
+    msg_check = 0
+    try:
+        float(data)
+        return data
+    except ValueError:
+        msg_check = 1
+        return data
 
 try:
     greetings()
