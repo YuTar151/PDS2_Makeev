@@ -5,7 +5,7 @@ sock.connect(('localhost', 55000))
 
 def send():
     # msg = input('Введіть два числа: ')
-    msg = "1 12"
+    msg = "10 12"
     sock.send(msg.encode("utf-8"))
     data = sock.recv(1024).decode("utf-8")
     print(data)
