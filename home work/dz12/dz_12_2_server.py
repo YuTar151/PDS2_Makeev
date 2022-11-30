@@ -12,6 +12,14 @@ def sumf(counter):
         res += int(i)
     return res
 
+def minusf(counter):
+    res = int(counter[0]) - int(counter[1])
+    return res
+
+def multf(counter):
+    res = int(counter[0]) * int(counter[1])
+    return res
+
 async def serv_run():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind(('', 55000))
@@ -25,18 +33,14 @@ async def serv_run():
         while True:
             global counter
             data = conn.recv(1024).decode('utf-8')
-            if data == None:
-                conn.close()
-            else:
-                counter = list(data.split(' '))
-                msg = str(f'Сумма вказанних чисел = {sumf(counter)}')
-                conn.send(msg.encode('utf-8'))
+            counter = list(data.split(' '))
+            msg = str(f"Сумма вказанних чисел = '{sumf(counter)}', Різниця вказанних чисел = '{minusf(counter)}', Результат множення вказанних чисел = '{multf(counter)}'")
+            conn.send(msg.encode('utf-8'))
+            conn.close()
 
-        conn.close()
 
     except ConnectionAbortedError:
         print("Программа завершила роботу з клiентом")
-
 
 
 asyncio.run(serv_run())
