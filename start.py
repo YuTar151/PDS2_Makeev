@@ -10,7 +10,7 @@ PS: Если использовать break в цикле for - else, то пр�
 # a, b = 0, 0
 # list = []
 # i = 1
-# # for i in range(1, num_2):
+# for i in range(1, num_2):
 # while num_1 < num_2:
 #     a = num_1 % i
 #     b = num_2 % i
