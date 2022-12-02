@@ -74,5 +74,4 @@ def stat():
         print(f"Average time sorting float_list: {sorting_float_list}")
         print(f"Average time sorting str_list: {sorting_str_list}")
 
-
 stat()
