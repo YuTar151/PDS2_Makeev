@@ -29,7 +29,6 @@ def selection_sort(data):
             data[scanIndex], data[minIndex] = data[minIndex], data[scanIndex]
     print("Selection Sort:", data)
 
-
 def stat():
     laps = 0
     Duration_time = 0

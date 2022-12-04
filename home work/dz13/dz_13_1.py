@@ -11,7 +11,6 @@ from random_words import RandomWords
 int_list = []
 float_list = []
 str_list = []
-
 w = RandomWords()
 
 for i in range(0, 5000):
