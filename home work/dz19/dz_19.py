@@ -19,14 +19,12 @@ g = nx.Graph()
 for edge in edgelist:
     g.add_edge(edge[0], edge[1], weight = edge[2])
 
-sp =
 print(nx.shortest_path(g, 'Kremenets', 'Yuzhnoukrainsk', weight='weight'))
 print(nx.shortest_path_length(g, 'Kremenets', 'Yuzhnoukrainsk', weight='weight'))
 
 nx.draw_networkx(g)
-
 pos = nx.spring_layout(g)
 nx.draw_networkx(g, pos)
-plt.title("Random Graph Generation Example")
+plt.title("Graph Generation")
 plt.show()
 
