@@ -1,23 +1,12 @@
-"""
-Написати програму, яка приймає назву товару і його вартість, після чого записує ці значення у словник.
-Довжина словника - 32. Кожен елемент словника - буква української абетки. Врахувати можливість виникнення колізій.
-"""
+import pandas as pd
 
-# Creating an empty dictionary with a fixed size of 32
-data = {}
+data = {
+    'Name': ['Иван Мурзин', 'Александр Сафонов', 'Вячеслав Трофимов', 'Дима Яковлев', 'Юлия Сазонова', 'Петр Александров',
+             'Данил Журавлёв', 'Влад Усов', 'Руслан Иванов', 'Яна Спиридонова', 'Оксана Новикова', 'Серега Сафонов',
+             'Петр Пушкин', 'Павел Ефимов', 'Кристина Хамитова'],
+    'Avg_Grade': [90, 85, 92, 88, 80, 86, 85, 90, 96, 80, 92, 88, 90, 85, 92],
+    'Exam_Grade': [11, 12, 11, 12, 10, 12, 11, 12, 12, 10, 12, 11, 12, 10, 12]
+}
 
-
-def insert_data(item, price):
-    key = hash(item) % 32  # Generating a key using the hash function and taking modulo of 32
-    if key in data:
-        # Handling collision by appending the new item to the list at the key
-        data[key].append((item, price))
-    else:
-        data[key] = [(item, price)]
-
-
-# Example usage
-insert_data("Товар 1", 100)
-insert_data("Товар 2", 200)
-
-
+df = pd.DataFrame(data)
+print(df)
