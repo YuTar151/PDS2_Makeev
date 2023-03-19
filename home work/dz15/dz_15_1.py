@@ -1,27 +1,15 @@
-"""1. Використовуючи код домашнього завдання 1 лекції 11, додайте до серверу чату систему логування рівня INFO,
-WARNING і ERROR. """
+import logging
+from dz_11_1_server import socket_server
 
-import socket
+server_logger = logging.getLogger('serverFL')
+server_logger.setLevel(logging.INFO)
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect(('localhost', 55000))
+fh = logging.FileHandler(filename="server.log")
 
-def send():
-    puncts = ".,!:;`?&@"
-    msg = input('Введіть текст: ')
-    for i in msg:
-        if i in puncts:
-            msg = msg.replace(i, "")
-    else:
-        sock.send(msg.encode("utf-8"))
-        data = sock.recv(1024).decode("utf-8")
-        print(data)
+FORMAT = '%(asctime)s :: %(name)s :: %(lineno)s :: %(levelname)s :: %(message)s'
+fh.setFormatter(logging.Formatter(FORMAT))
 
-try:
-    send()
-
-except KeyboardInterrupt as ex:
-    print("Зв'язок завершено")
-    print(ex)
-
-sock.close()
+server_logger.addHandler(fh)
+server_logger.info('Program started.')
+socket_server()
+server_logger.info("Program finished.\n")
