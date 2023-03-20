@@ -1,12 +1,19 @@
-import pandas as pd
+from sklearn.ensemble import StackingClassifier
+from sklearn.datasets import load_breast_cancer
+from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import SGDClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
 
-data = {
-    'Name': ['Иван Мурзин', 'Александр Сафонов', 'Вячеслав Трофимов', 'Дима Яковлев', 'Юлия Сазонова', 'Петр Александров',
-             'Данил Журавлёв', 'Влад Усов', 'Руслан Иванов', 'Яна Спиридонова', 'Оксана Новикова', 'Серега Сафонов',
-             'Петр Пушкин', 'Павел Ефимов', 'Кристина Хамитова'],
-    'Avg_Grade': [90, 85, 92, 88, 80, 86, 85, 90, 96, 80, 92, 88, 90, 85, 92],
-    'Exam_Grade': [11, 12, 11, 12, 10, 12, 11, 12, 12, 10, 12, 11, 12, 10, 12]
-}
+data = load_breast_cancer()
 
-df = pd.DataFrame(data)
-print(df)
+X, y = load_breast_cancer(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=12)
+
+estimators = [('lgr', LogisticRegression()), ('sgc', DecisionTreeClassifier())]
+model_cls = StackingClassifier(estimators=estimators, final_estimator=SVC())
+
+model_cls.fit(X_train, y_train)
+
+print(model_cls.score(X_test, y_test))
